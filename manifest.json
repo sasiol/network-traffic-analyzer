@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "3rd party request tracker",
+  "version": "1.0.0",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "scripting",
+    "storage",
+    "webNavigation",
+    "<all_urls>",
+    "offscreen",
+    "offscreen_documents"
+  ],
+  "host_permissions":  [
+  "http://*/*",
+  "https://*/*"
+],
+  "minimum_chrome_version": "102",
+  "background": {
+    "service_worker": "background/service-workers.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [ "content/find-privacyLinks.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "3rd party Requests"
+  },
+  "offscreen_documents": {
+  "offscreen.html": {
+    "matches": ["<all_urls>"],
+    "js": ["offscreen.js"]
+  }
+}
+}
