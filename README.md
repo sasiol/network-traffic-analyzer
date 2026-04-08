@@ -10,5 +10,5 @@ Goal is to have LLM analyse the privacy policies and traffic for potential sensi
 - Extracts URLs and request metadata for analysis
 - Searches for website's privacy policy from links
 - Extracts the text from privacy policy
-- Sends data to LLM for analysis (runing on university's server, not included here)
+- Sends collected data for LLM-based analysis via a local Python backend service (not included in this repository) that communicates with a university-hosted LLM server
 
